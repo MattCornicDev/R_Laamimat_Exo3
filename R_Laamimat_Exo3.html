@@ -1,26 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&afficher=swap" rel="stylesheet">
-  -->
   <title>Devinez le nombre</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="#">
 </head>
 
 <body>
   <h1>Deviner un nombre</h1>
   <p class="n">vous avez 10 chance pour trouver un nombre entre 1 et 100.</p>
 
-  <form class="form container">
-    <div class="input-group mb-3">
+  <form class="form">
+    <div class="input">
       <input type="text" id="champ" class="form-control" placeholder="Enter the Number" >
-      <div class="input-group-append">
-        <button type="envoyer" id="essaiJoueur" class="essaienvoyer btn btn-info">Devinez</button>
+      <div class="input">
+        <button type="envoyer" id="essaiJoueur" class="essaienvoyer">Devinez</button>
       </div>
     </div>
   </form>
@@ -30,6 +25,9 @@
     <p>Devinez le reste: <span class="dernierResultat">10</span></p>
     <p class="tropBas"></p>
   </div>
+  <button>Rejouer</button>
+
+
 
   <script src="R_Laamimat_Exo3.js"></script>
 </body>

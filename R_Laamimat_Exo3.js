@@ -9,6 +9,7 @@ const restant = document.querySelector('.dernierResultat');
 const recommencer = document.querySelector('.resultParas');
 const tropBas = document.querySelector('.tropBas');
 const p = document.createElement('p');
+
 //valeur precedente
 let precedent = [];
 //nombre d'essai par joueur
@@ -39,7 +40,14 @@ function validerEssai(essai){
         //verifie si le jeu est terminé
         if (numdevine === 11){
             afficherdevine(essai);
-            afficherMessage(`Perdu! Le nombre était ${NbMystere}`);
+            var newPara = document.createElement('p');
+            newPara.id = "info";
+            var texte = document.createTextNode("PERDU ! Le nombre était  " );
+            newPara.appendChild(texte);
+            document.body.appendChild(newPara);
+            afficherMessage(`${NbMystere}`);
+            document.querySelector("#info").style.backgroundColor = "red";
+
             fin();
         } else {
         //afficher essai précédent
@@ -53,12 +61,20 @@ function validerEssai(essai){
 function verifier(essai){
     //afficher si le nombre est plus grand ou plus petit
     if (essai === NbMystere){
-        afficherMessage('Excellent !');
+         // afficherMessage('Excellent !');
+        var excellent = document.createElement('p');
+        excellent.id = "excellent";
+        var texteExcellent = document.createTextNode("Bravo vous avez trouvé le nombre");
+        excellent.appendChild(texteExcellent);
+        document.body.appendChild(excellent);
+        document.querySelector("#excellent").style.backgroundColor = "green";
+
         fin();
     } else if (essai < NbMystere) {
         afficherMessage("Trop bas ! essai encore");
     } else if (essai > NbMystere) {
         afficherMessage("Trop haut ! essai encore ");
+
     }
 }
 //details de l'essai par utilisateur
@@ -76,13 +92,13 @@ function afficherMessage(message){
 function fin(){
     
     userInput.value = '';
-    //desactive le bouton du ujoueur apres avoir épuiser toutes ses chances
+    //desactive le bouton du joueur apres avoir épuiser toutes ses chances
     userInput.setAttribute('disabled', '');
     //désactive le bouton envoyer
     envoyer.setAttribute('disabled', '');
     //afficher nouvelle partie
           p.classList.add('button');
-          p.innerHTML = `<h1 id="nouvellePartie">PLAY AGAIN</h1>`
+          p.innerHTML = `<h1 id="nouvellePartie"></h1>`
     recommencer.appendChild(p);
     jeu = false;
     nouvellePartie();
